@@ -26,7 +26,7 @@ execute_script: arguments传参
 
 class TestJs:
     def setup(self):
-        self.driver=webdriver.Chrome()
+        self.driver=webdriver.Chrome(executable_path='/usr/local/bin/chromedriver')
         self.driver.get("https://www.baidu.com")
         self.driver.implicitly_wait(3)
 
@@ -36,12 +36,13 @@ class TestJs:
 
     def test_js_scroll(self):
         self.driver.find_element_by_id("kw").send_keys("测试seleium")
-        ele=self.driver.execute_script("return document.getElementById('su')")
-        ele.click()
         sleep(3)
-        self.driver.execute_script("document.documentElement.scrollTop=1000")
-        sleep(3)
-        for code in[
-            'return document.title','return JSON.stringify(performance.timing)'
-        ]:
-            print(self.driver.execute_script(code))
+        # ele=self.driver.execute_script("return document.getElementById('su')")
+        # ele.click()
+        # sleep(3)
+        # self.driver.execute_script("document.documentElement.scrollTop=1000")
+        # sleep(3)
+        # for code in[
+        #     'return document.title','return JSON.stringify(performance.timing)'
+        # ]:
+        #     print(self.driver.execute_script(code))

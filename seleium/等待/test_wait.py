@@ -1,7 +1,7 @@
 #-*- coding:utf-8 _*-  
 """ 
 @author:lupang 
-@file: 等待.py 
+@file: test_wait.py
 @time: 2021/02/03 
 """
 from time import sleep

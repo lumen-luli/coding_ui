@@ -12,8 +12,11 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 
 '''
- jquery语法：
- $('这里是css selector语法')，如：$("#kw")
+使用find_element()的好处是方法名不会写死，定位方式可以通过参数传递，在一些框架中使用时会更加灵活一些
+通过 find_elements() 或者find_elements_by_id() （注意都多了个 s），将以列表的形式返回所有符合条件的元素。
+
+jquery语法：
+$('这里是css selector语法')，如：$("#kw")
 发送文本：.val()
 点击：.click()
 '''
@@ -32,11 +35,25 @@ class TestLocate:
         self.driver.quit()
 
     def test_by_css(self):
-        #css 选择器语法：https://www.w3school.com.cn/cssref/css_selectors.asp
-        # 测试css的语法是：$$("")，括号中的内容为css的定位语法
+        #css 选择器语法：https://www.runoob.com/cssref/css-selectors.html
+        # 测试css的语法是：$$("") ，括号中的内容为css的定位语法,css_selector:不能用于appium，应用里面嵌套的网页可以，比xpath快
         pass
 
     def test_by_xpath(self):
+        '''
+            xpath:xml path language(速度慢，从头到尾遍历，可用于appium，seleium)
+            / 代表子元素  //代表所有子孙元素  . 选取当前节点  .. 选取当前节点的父节点 @ 选取属性
+            表达式  结果
+            /books/book[1] 选取books子元素的第一个book元素
+            /books/book[last()] 选取books子元素的最后一个book元素
+            /books/book[last()-1]  选取books子元素的倒数第二个book元素
+            /books/book[position()<3] 选取最前面的两个属于books元素的子元素的book属性
+            //title[@lang='eng]  选取所有title冤死，切这些元素拥有职位eng的lang属性
+            /books/book[price>35]  选取books所有books元素，且其中的price必须大于35
+            /books/book[price>35]/title  选取books元素在book元素的所有title，且book的price必须大于35
+
+            在console中用 $x('//*[@id="s_tab"]//a[0]')
+            '''
         # https://blog.csdn.net/minzhung/article/details/102641230
         #验证xpath语法是$x(“your_xpath_selector”)，如：$x('//*[@id="kw"]')
         pass

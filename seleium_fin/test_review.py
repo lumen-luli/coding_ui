@@ -21,12 +21,7 @@ from selenium.webdriver.support import expected_conditions
 from time import sleep
 from selenium.webdriver.common.keys import Keys
 
-'''
-js处理
-execute_script:执行js
-return：可以返回js的返回结果
-execute_script: arguments传参
-'''
+
 
 class TestReview:
     def setup(self):
@@ -48,7 +43,23 @@ class TestReview:
         self.driver.find_element_by_css_selector(".toggleable-input").send_keys("1qaz@WSX")
         sleep(1)
         self.driver.find_element_by_css_selector(".block").click()
+        sleep(3)
+        #self.driver.find_element(By.CSS_SELECTOR,"#app > div > div > section > aside > div > div:nth-child(2) > ul > li:nth-child(2) > div > span > span:nth-child(2)").click()
+        #sleep(2)
+        #self.driver.find_element(By.CSS_SELECTOR,"#app > div > div > section > aside > div > div:nth-child(2) > ul > li:nth-child(3) > div > span > span").click()
+        #sleep(2)
+        #self.driver.find_element(By.CSS_SELECTOR,"#app > div > div > section > aside > div > div:nth-child(2) > ul > li:nth-child(3) > div > span > span")
+        # js='document.querySelector(".ant-layout-sider-children>div:last-child").scrollTop=10000'
+        # self.driver.execute_script(js)
+        #self.driver.find_element(By.CSS_SELECTOR,".ant-layout-sider-children>div:last-child").send_keys(Keys.DOWN)
+        #sleep(2)
+        self.driver.find_element(By.CSS_SELECTOR,"#app > div > div > section > aside > div > div:nth-child(2) > ul > li:nth-child(4) > div > span > span:nth-child(2)").click()
         sleep(2)
-        self.driver.find_element_by_link_text("资金运营")
+        self.driver.find_element(By.CSS_SELECTOR,"#账务管理\$Menu > li:nth-child(6) > a").click()
+        sleep(1)
+        self.driver.find_elements_by_class_name("ant-select-selection-search-input").send_keys("三方")
+        sleep(3)
+
+
 
 
